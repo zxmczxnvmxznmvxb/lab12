@@ -4,12 +4,7 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
 public class FamilyTree{
-	// Returns the "deepest" node that is an ancestor of the node named name1, and also is an
-	// ancestor of the node named name2.
-	//
-	// "Depth" of a node is the "distance" between that node and the root. The depth of the root is 0. The
-	// depth of the root's immediate children is 1, and so on.
-	//
+	/** Returns the "deepest" node that is an ancestor of the node named name1, and also is an ancestor of the node named name2. "Depth" of a node is the "distance" between that node and the root. The depth of the root is 0. The depth of the root's immediate children is 1, and so on.**/
 	TreeNode getMostRecentCommonAncestor(String name1, String name2) throws TreeException{
 		// Get nodes for input names.
 		TreeNode node1 = root.getNodeWithName(name1);		// node whose name is name1
@@ -65,8 +60,7 @@ public class FamilyTree{
 			children.add(childNode);
 		}
 	}private TreeNode root;
-	// Line format is "parent:child1,child2 ..."
-	// Throws TreeException if line is illegal.
+	/**Line format is "parent:child1,child2 ..." Throws TreeException if line is illegal.**/
 	private void addLine(String line) throws TreeException{
 		// Extract parent and array of children.
 		int colonIndex = line.indexOf(':');
@@ -86,7 +80,7 @@ public class FamilyTree{
 			if (null==parentNode)throw new TreeException("parent not found: "+parent);
 		}
 		for(String c:childrenArray)parentNode.addChild(new TreeNode(c));
-	}//Displays a file browser so that user can select the family tree file.
+	}/**Displays a file browser so that user can select the family tree file.**/
 	public FamilyTree() throws IOException, TreeException{
 		// User chooses input file. This block doesn't need any work.
 		FileNameExtensionFilter filter = 
